@@ -65,3 +65,12 @@ Route::get('/user2/{name}', [UserController::class, 'show']);
 Route::view('user', 'user');
 Route::view('user2', 'user2');
 
+
+/*
+|--------------------------------------------------------------------------
+| URL
+|--------------------------------------------------------------------------
+*/
+
+Route::view('url', 'URLGeneration');
+Route::view('url2', 'URLGeneration2');
