@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,3 +66,5 @@ Route::get('/user2/{name}', [UserController::class, 'show']);
 Route::view('user', 'user');
 Route::view('user2', 'user2');
 
+Route::view('login', 'login');
+Route::post('loggedin', [LoginController::class, 'login']);
