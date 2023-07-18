@@ -65,3 +65,6 @@ Route::get('/user2/{name}', [UserController::class, 'show']);
 Route::view('user', 'user');
 Route::view('user2', 'user2');
 
+Route::view('noaccess', 'noaccess');
+Route::view('alluser', 'alluser') -> middleware('restriction');
+Route::view('home', 'home') -> middleware('restriction');
