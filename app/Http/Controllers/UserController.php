@@ -3,15 +3,34 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use App\Models\CustomModel;
+use App\Models\Employee;
 
 class UserController extends Controller
 {
-    //
-    function user($name) {
-        return '<h1>User controller called the user function to show your name: '.$name.'</h1>';
+    //data using SQL Query
+    function showUsers(){
+        return DB::select("select * from users");
     }
 
-    function show($name){
-        return view('about', ['name' => $name]);
+    //data using model
+    function getData() {
+        return User::all();
+    }
+
+    //data using custom model
+    function getCustomModelData(){
+        return CustomModel::all();
+    }
+
+    //data for another table;
+    function getEmployee(){
+        return Employee::all();
+    }
+
+    function getEmpData() {
+        return DB::select("select * from employees where serial_no = '1'");
     }
 }
