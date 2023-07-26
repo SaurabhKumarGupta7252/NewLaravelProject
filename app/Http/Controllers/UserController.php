@@ -30,7 +30,19 @@ class UserController extends Controller
         return Employee::all();
     }
 
-    function getEmpData() {
-        return DB::select("select * from employees where serial_no = '1'");
+    function getEmpData(Request $request) {
+        $list = DB::select("select * from users where address like '%".$request->id."%'");
+        if (sizeof($list) == 0) {
+            $list = [];
+        } else if(sizeof($list) == 1)
+            $list = $list[0];
+        $data = [
+            'code'=>200,
+            'message'=>'Success',
+            'version'=>'1.2.0',
+            'is_paid'=> false,
+            'data_list'=> $list
+        ];
+        return response()->json($data);
     }
 }

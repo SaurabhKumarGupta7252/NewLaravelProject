@@ -15,4 +15,4 @@ Route::get('getCustomModelData', [UserController::class, 'getCustomModelData']);
 
 Route::get('getEmp', [UserController::class, 'getEmployee']);
 
-Route::get('getEmpData', [UserController::class, 'getEmpData']);
+Route::get('getEmpData/{id}', [UserController::class, 'getEmpData']);
