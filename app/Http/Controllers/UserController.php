@@ -11,13 +11,8 @@ use App\Models\Employee;
 class UserController extends Controller
 {
     //data using SQL Query
-    function showUsers(){
-        return DB::select("select * from users");
-    }
-
-    //data using model
-    function getData() {
-        return User::all();
+    function allEmployee(){
+        return DB::select("select * from employees");
     }
 
     //data using custom model
@@ -25,13 +20,12 @@ class UserController extends Controller
         return CustomModel::all();
     }
 
-    //data for another table;
     function getEmployee(){
         return Employee::all();
     }
 
     function getEmpData(Request $request) {
-        $list = DB::select("select * from users where address like '%".$request->id."%'");
+        $list = DB::select("select * from employees where id=".$request-> id);
         if (sizeof($list) == 0) {
             $list = [];
         } else if(sizeof($list) == 1)

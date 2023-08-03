@@ -7,7 +7,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('users', [UserController::class, 'showUsers']);
+Route::get('all', [UserController::class, 'allEmployee']);
 
 Route::get('getData', [UserController::class, 'getData']);
 
